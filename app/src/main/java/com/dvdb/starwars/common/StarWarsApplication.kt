@@ -12,6 +12,7 @@ import com.dvdb.starwars.model.network.film.FilmNetworkDataSourceImpl
 import com.dvdb.starwars.model.network.factory.HttpFactory
 import com.dvdb.starwars.model.repository.StarWarsRepository
 import com.dvdb.starwars.model.repository.StarWarsRepositoryImpl
+import io.reactivex.disposables.CompositeDisposable
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -29,6 +30,7 @@ class StarWarsApplication : Application(), KodeinAware {
         bind() from singleton { FilmApiService(instance()) }
         bind<FilmNetworkDataSource>() with singleton { FilmNetworkDataSourceImpl(instance()) }
         bind<StarWarsRepository>() with singleton { StarWarsRepositoryImpl(instance()) }
+        bind<CompositeDisposableManager>() with singleton { CompositeDisposableManagerImpl(CompositeDisposable()) }
         bind<FilmListUseCases>() with singleton { FilmListInteractor(instance()) }
     }
 }

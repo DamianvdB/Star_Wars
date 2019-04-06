@@ -26,4 +26,6 @@
     <dimen name="spacing_xsmall">6dp</dimen>
     <dimen name="spacing_xxsmall">4dp</dimen>
 
+    <dimen name="splash_screen_logo_height">200dp</dimen>
+
 </resources>

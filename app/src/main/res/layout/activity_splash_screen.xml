@@ -3,13 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.splash.SplashScreenActivity">
+    tools:context=".presentation.splash.SplashScreenActivity">
 
     <ImageView
+        android:id="@+id/image_logo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/splash_screen_logo_height"
         android:layout_alignParentTop="true"
         android:layout_margin="@dimen/spacing_xxxlarge"
+        android:adjustViewBounds="true"
         android:src="@drawable/bg_star_wars_title" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/spacing_xxxlarge"
+        android:indeterminate="true" />
 
 </RelativeLayout>

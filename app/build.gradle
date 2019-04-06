@@ -26,9 +26,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Android X
-    def android_x_version = "1.0.0"
-    implementation "androidx.appcompat:appcompat:$android_x_version"
-    implementation "androidx.recyclerview:recyclerview:$android_x_version"
+    implementation "androidx.appcompat:appcompat:1.1.0-alpha04"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
 
     // Kotlin
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'

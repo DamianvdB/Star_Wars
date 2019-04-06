@@ -1,0 +1,29 @@
+<resources>
+    <!-- Text sizes -->
+    <dimen name="text_size_xxxlarge">24sp</dimen>
+    <dimen name="text_size_xxlarge">21sp</dimen>
+    <dimen name="text_size_xlarge">18sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_xsmall">12sp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="icon_size_xxlarge">36dp</dimen>
+    <dimen name="icon_size_xlarge">32dp</dimen>
+    <dimen name="icon_size_large">28dp</dimen>
+    <dimen name="icon_size_normal">24dp</dimen>
+    <dimen name="icon_size_small">20dp</dimen>
+    <dimen name="icon_size_xsmall">16dp</dimen>
+
+    <!-- General spacing -->
+    <dimen name="spacing_xxxlarge">30dp</dimen>
+    <dimen name="spacing_xxlarge">24dp</dimen>
+    <dimen name="spacing_xlarge">20dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_normal">12dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_xsmall">6dp</dimen>
+    <dimen name="spacing_xxsmall">4dp</dimen>
+
+</resources>

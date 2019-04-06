@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SplashScreenTheme" parent="StarWarsThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
+        <!--Removing actionbar-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="FilmTheme" parent="StarWarsThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+</resources>

@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dvdb.starwars">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
+        android:name=".common.StarWarsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,8 +15,8 @@
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity
-            android:name=".ui.splash.SplashScreenActivity"
+    <activity
+            android:name=".presentation.splash.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>

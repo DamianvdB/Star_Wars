@@ -33,6 +33,11 @@ dependencies {
     // Kotlin
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
 
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.3.0"
+
     // Kodein
     def kodein_version = "6.1.0"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
@@ -54,6 +59,7 @@ dependencies {
     def retrofit_version = "2.5.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
     // Glide
     def glide_version = "4.8.0"

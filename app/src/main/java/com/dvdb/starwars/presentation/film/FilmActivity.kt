@@ -18,7 +18,7 @@ class FilmActivity : AppCompatActivity(), KodeinAware {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film)
         setSupportActionBarAndTitle()
-        addFilmListFragment()
+        addFilmListFragmentIfEmpty()
     }
 
     private fun setSupportActionBarAndTitle() {
@@ -26,9 +26,11 @@ class FilmActivity : AppCompatActivity(), KodeinAware {
         setTitle(R.string.films)
     }
 
-    private fun addFilmListFragment() {
-        supportFragmentManager.beginTransaction()
-            .add(frame_layout.id, FilmListFragment(), FRAGMENT_LIST_TAG)
-            .commit()
+    private fun addFilmListFragmentIfEmpty() {
+        if (supportFragmentManager.fragments.isEmpty()) {
+            supportFragmentManager.beginTransaction()
+                .add(frame_layout.id, FilmListFragment(), FRAGMENT_LIST_TAG)
+                .commit()
+        }
     }
 }

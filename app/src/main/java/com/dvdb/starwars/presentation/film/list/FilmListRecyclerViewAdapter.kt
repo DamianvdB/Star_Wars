@@ -14,12 +14,16 @@ import kotlinx.android.synthetic.main.item_film.view.*
 class FilmListRecyclerViewAdapter(
     private val context: Context,
     private val layoutInflater: LayoutInflater,
-    private var filmItems: List<FilmListItem> = emptyList()
+    private var filmItems: List<FilmListItem> = emptyList(),
+    private val onClickListener: View.OnClickListener
 ) : RecyclerView.Adapter<FilmListRecyclerViewAdapter.FilmViewHolder>() {
     private val glideRequestOptions = RequestOptions().placeholder(R.drawable.ic_darth_vader)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
-        return FilmViewHolder(layoutInflater.inflate(R.layout.item_film, parent, false))
+        return FilmViewHolder(
+            layoutInflater.inflate(R.layout.item_film, parent, false),
+            onClickListener
+        )
     }
 
     override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
@@ -42,13 +46,21 @@ class FilmListRecyclerViewAdapter(
 
     fun updateItems(items: List<FilmListItem>) {
         filmItems = items
+        notifyDataSetChanged()
     }
 
-    class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class FilmViewHolder(
+        itemView: View,
+        onClickListener: View.OnClickListener
+    ) : RecyclerView.ViewHolder(itemView) {
         val image = itemView.image_film!!
         val textTitle = itemView.text_film_title!!
         val textReleaseDate = itemView.text_release_date!!
         val textDirector = itemView.text_director!!
         val textProducer = itemView.text_producer!!
+
+        init {
+            itemView.setOnClickListener(onClickListener)
+        }
     }
 }

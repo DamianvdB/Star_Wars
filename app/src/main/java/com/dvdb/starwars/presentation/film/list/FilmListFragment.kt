@@ -37,12 +37,18 @@ class FilmListFragment : Fragment(), KodeinAware {
             .get(FilmListViewModel::class.java)
         initRecyclerView()
         observeViewModel()
+        refreshDataFromViewModelAfterConfigurationChange(savedInstanceState)
     }
 
     private fun initRecyclerView() {
         recycler_view.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = FilmListRecyclerViewAdapter(requireContext(), _layoutInflater)
+            adapter = FilmListRecyclerViewAdapter(
+                requireContext(),
+                _layoutInflater,
+                onClickListener = View.OnClickListener {
+
+                })
         }
     }
 
@@ -61,5 +67,11 @@ class FilmListFragment : Fragment(), KodeinAware {
                     }
                 }
             })
+    }
+
+    private fun refreshDataFromViewModelAfterConfigurationChange(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) {
+            viewModel.updateFilmList()
+        }
     }
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_xxsmall"
+    card_view:cardCornerRadius="@dimen/card_view_radius"
+    card_view:cardElevation="@dimen/card_view_elevation"
+    card_view:cardPreventCornerOverlap="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_xxsmall"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/image_film"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:adjustViewBounds="true"
+            tools:src="@drawable/ic_darth_vader"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_xsmall">
+
+            <TextView
+                android:id="@+id/text_film_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold"
+                tools:text="New Hope" />
+
+            <TextView
+                android:id="@+id/text_release_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/text_size_xsmall"
+                tools:text="1977-05-25" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_line_height"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:background="@color/divider_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/film_item_director"
+                android:textAllCaps="true"
+                android:textColor="?android:textColorTertiary"
+                android:textSize="@dimen/text_size_xsmall"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_director"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/text_size_xsmall"
+                tools:text="George Lucas" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/film_item_producers"
+                android:textAllCaps="true"
+                android:textColor="?android:textColorTertiary"
+                android:textSize="@dimen/text_size_xsmall"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_producer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/text_size_xsmall"
+                tools:text="Gary Kurtz, Rick McCallum" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

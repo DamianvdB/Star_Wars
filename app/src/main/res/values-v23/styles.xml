@@ -3,9 +3,6 @@
 
     <style name="SplashScreenTheme" parent="StarWarsThemeBase">
         <item name="android:windowLightStatusBar">true</item>
-        <!--Removing actionbar-->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="FilmTheme" parent="StarWarsThemeBase">

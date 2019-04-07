@@ -12,7 +12,10 @@ import com.dvdb.starwars.model.network.film.FilmNetworkDataSource
 import com.dvdb.starwars.model.network.film.FilmNetworkDataSourceImpl
 import com.dvdb.starwars.model.repository.StarWarsRepository
 import com.dvdb.starwars.model.repository.StarWarsRepositoryImpl
+import com.dvdb.starwars.presentation.film.list.FilmListViewModelFactory
 import com.dvdb.starwars.presentation.splash.SplashScreenViewModelFactory
+import com.dvdb.starwars.presentation.util.NavigationManager
+import com.dvdb.starwars.presentation.util.NavigationManagerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -41,5 +44,7 @@ class StarWarsApplication : Application(), KodeinAware {
         bind(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE) from singleton { Schedulers.io() }
         bind(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE) from singleton { AndroidSchedulers.mainThread() }
         bind() from provider { SplashScreenViewModelFactory(instance(), instance(), instance(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE), instance(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE)) }
+        bind<NavigationManager>() with singleton {NavigationManagerImpl(this@StarWarsApplication)}
+        bind() from provider { FilmListViewModelFactory(instance(), instance(), instance(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE), instance(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE)) }
     }
 }

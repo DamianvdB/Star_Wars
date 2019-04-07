@@ -27,5 +27,8 @@
     <dimen name="spacing_xxsmall">4dp</dimen>
 
     <dimen name="splash_screen_logo_height">200dp</dimen>
+    <dimen name="divider_line_height">0.5dp</dimen>
+    <dimen name="card_view_radius">6dp</dimen>
+    <dimen name="card_view_elevation">2dp</dimen>
 
 </resources>

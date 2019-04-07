@@ -2,8 +2,10 @@ package com.dvdb.starwars.common
 
 import android.app.Application
 import com.dvdb.starwars.common.model.FilmListItem
-import com.dvdb.starwars.domain.FilmListInteractor
-import com.dvdb.starwars.domain.FilmListUseCases
+import com.dvdb.starwars.domain.film.detail.FilmDetailUseCases
+import com.dvdb.starwars.domain.film.detail.FilmDetaillInteractor
+import com.dvdb.starwars.domain.film.list.FilmListInteractor
+import com.dvdb.starwars.domain.film.list.FilmListUseCases
 import com.dvdb.starwars.model.network.factory.HttpFactory
 import com.dvdb.starwars.model.network.factory.HttpFactoryImpl
 import com.dvdb.starwars.model.network.factory.RetrofitFactory
@@ -48,6 +50,7 @@ class StarWarsApplication : Application(), KodeinAware {
         bind<TmdbFilmApiPosterPathManager>() with singleton { TmdbFilmApiPosterPathManagerImpl( ) }
         bind() from singleton { FilmListItem.Factory(instance()) }
         bind<FilmListUseCases>() with singleton { FilmListInteractor(instance(), instance()) }
+        bind<FilmDetailUseCases>() with singleton {FilmDetaillInteractor(instance())}
         bind(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE) from singleton { Schedulers.io() }
         bind(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE) from singleton { AndroidSchedulers.mainThread() }
         bind() from provider { SplashScreenViewModelFactory(instance(), instance(), instance(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE), instance(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE)) }

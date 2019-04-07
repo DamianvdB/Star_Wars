@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dvdb.starwars.common.CompositeDisposableManager
 import com.dvdb.starwars.common.model.FilmListItem
-import com.dvdb.starwars.domain.FilmListUseCases
+import com.dvdb.starwars.domain.film.list.FilmListUseCases
 import io.reactivex.Scheduler
 import io.reactivex.observers.DisposableSingleObserver
 

@@ -3,7 +3,7 @@ package com.dvdb.starwars.presentation.film.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dvdb.starwars.common.CompositeDisposableManager
-import com.dvdb.starwars.domain.FilmListUseCases
+import com.dvdb.starwars.domain.film.list.FilmListUseCases
 import io.reactivex.Scheduler
 
 class FilmListViewModelFactory(

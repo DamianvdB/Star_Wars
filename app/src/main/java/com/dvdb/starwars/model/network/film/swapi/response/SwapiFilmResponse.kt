@@ -1,8 +1,8 @@
-package com.dvdb.starwars.model.network.film.response
+package com.dvdb.starwars.model.network.film.swapi.response
 
 import com.google.gson.annotations.SerializedName
 
-data class FilmReponse(
+data class SwapiFilmResponse(
     @SerializedName("characters") val characters: List<String>,
     @SerializedName("created") val created: String,
     @SerializedName("director") val director: String,

@@ -1,15 +1,17 @@
 package com.dvdb.starwars.common
 
 import android.app.Application
+import com.dvdb.starwars.common.model.FilmListItem
 import com.dvdb.starwars.domain.FilmListInteractor
 import com.dvdb.starwars.domain.FilmListUseCases
 import com.dvdb.starwars.model.network.factory.HttpFactory
 import com.dvdb.starwars.model.network.factory.HttpFactoryImpl
 import com.dvdb.starwars.model.network.factory.RetrofitFactory
 import com.dvdb.starwars.model.network.factory.RetrofitFactoryImpl
-import com.dvdb.starwars.model.network.film.FilmApiService
-import com.dvdb.starwars.model.network.film.FilmNetworkDataSource
-import com.dvdb.starwars.model.network.film.FilmNetworkDataSourceImpl
+import com.dvdb.starwars.model.network.film.swapi.SwapiFilmApiService
+import com.dvdb.starwars.model.network.film.swapi.SwapiFilmNetworkDataSource
+import com.dvdb.starwars.model.network.film.swapi.SwapiFilmNetworkDataSourceImpl
+import com.dvdb.starwars.model.network.film.tmdb.*
 import com.dvdb.starwars.model.repository.StarWarsRepository
 import com.dvdb.starwars.model.repository.StarWarsRepositoryImpl
 import com.dvdb.starwars.presentation.film.list.FilmListViewModelFactory
@@ -34,17 +36,21 @@ class StarWarsApplication : Application(), KodeinAware {
 
     override val kodein = Kodein.lazy {
         import(androidXModule(this@StarWarsApplication))
-        bind<HttpFactory>() with provider { HttpFactoryImpl() }
-        bind<RetrofitFactory>() with provider { RetrofitFactoryImpl(instance()) }
-        bind() from singleton { FilmApiService(instance()) }
-        bind<FilmNetworkDataSource>() with singleton { FilmNetworkDataSourceImpl(instance()) }
-        bind<StarWarsRepository>() with singleton { StarWarsRepositoryImpl(instance()) }
+        bind<NavigationManager>() with singleton {NavigationManagerImpl(this@StarWarsApplication)}
+        bind<HttpFactory>() with singleton { HttpFactoryImpl() }
+        bind<RetrofitFactory>() with singleton { RetrofitFactoryImpl(instance()) }
+        bind() from singleton { SwapiFilmApiService(instance()) }
+        bind() from singleton { TmdbApiService(instance()) }
+        bind<SwapiFilmNetworkDataSource>() with singleton { SwapiFilmNetworkDataSourceImpl(instance()) }
+        bind<TmdbFilmNetworkDataSource>() with singleton { TmdbFilmNetworkDataSourceImpl(instance()) }
+        bind<StarWarsRepository>() with singleton { StarWarsRepositoryImpl(instance(), instance()) }
         bind<CompositeDisposableManager>() with singleton { CompositeDisposableManagerImpl( CompositeDisposable()) }
-        bind<FilmListUseCases>() with singleton { FilmListInteractor(instance()) }
+        bind<TmdbFilmApiPosterPathManager>() with singleton { TmdbFilmApiPosterPathManagerImpl( ) }
+        bind() from singleton { FilmListItem.Factory(instance()) }
+        bind<FilmListUseCases>() with singleton { FilmListInteractor(instance(), instance()) }
         bind(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE) from singleton { Schedulers.io() }
         bind(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE) from singleton { AndroidSchedulers.mainThread() }
         bind() from provider { SplashScreenViewModelFactory(instance(), instance(), instance(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE), instance(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE)) }
-        bind<NavigationManager>() with singleton {NavigationManagerImpl(this@StarWarsApplication)}
         bind() from provider { FilmListViewModelFactory(instance(), instance(), instance(tag = KODEIN_TAG_SCHEDULER_ON_SUBSCRIBE), instance(tag = KODEIN_TAG_SCHEDULER_ON_OBSERVE)) }
     }
 }

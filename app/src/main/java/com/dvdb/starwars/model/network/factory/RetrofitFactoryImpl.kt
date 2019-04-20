@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 internal class RetrofitFactoryImpl(
     private val httpFactory: HttpFactory
 ) : RetrofitFactory {
+
     override fun getRetrofit(baseUrl: HttpUrl): Retrofit {
        return Retrofit.Builder()
            .baseUrl(baseUrl)

@@ -13,16 +13,16 @@ internal class FilmListInteractor(
         return repository.getFilms()
             .toObservable()
             .flatMapIterable { it }
-            .flatMap { filmResponse ->
+            .flatMap { swapiFilmResponse ->
                 repository.getFilm(
-                    filmResponse.title,
-                    filmResponse.releaseDate.substring(0, 4).toInt()
+                    swapiFilmResponse.title,
+                    swapiFilmResponse.releaseDate.substring(0, 4).toInt()
                 ).map {
                     filmItemFactory.create(
-                        filmResponse.title,
-                        filmResponse.releaseDate,
-                        filmResponse.director,
-                        filmResponse.producer,
+                        swapiFilmResponse.title,
+                        swapiFilmResponse.releaseDate,
+                        swapiFilmResponse.director,
+                        swapiFilmResponse.producer,
                         it.posterPath
                     )
                 }.toObservable()

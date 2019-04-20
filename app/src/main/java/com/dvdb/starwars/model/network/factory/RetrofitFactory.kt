@@ -4,5 +4,7 @@ import okhttp3.HttpUrl
 import retrofit2.Retrofit
 
 internal interface RetrofitFactory {
-    fun getRetrofit(baseUrl: HttpUrl): Retrofit
+    fun getRetrofit(
+        baseUrl: HttpUrl
+    ): Retrofit
 }

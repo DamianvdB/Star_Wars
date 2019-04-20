@@ -13,7 +13,7 @@ data class SwapiFilmResponse(
     @SerializedName("producer") val producer: String,
     @SerializedName("release_date") val releaseDate: String,
     @SerializedName("species") val species: List<String>,
-    @SerializedName("starships") val starships: List<String>,
+    @SerializedName("starships") val starShips: List<String>,
     @SerializedName("title") val title: String,
     @SerializedName("url") val url: String,
     @SerializedName("vehicles") val vehicles: List<String>

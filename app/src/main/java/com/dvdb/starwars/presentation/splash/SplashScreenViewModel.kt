@@ -20,11 +20,13 @@ class SplashScreenViewModel(
         updateFilmItemList()
     }
 
-    private fun updateFilmItemList() {
+    fun updateFilmItemList() {
+        stateLiveData.value = SplashScreenViewModelState.Loading(true)
         compositeDisposableManager.container.add(
             filmListUseCases.getFilmListItems()
                 .subscribeOn(subscribeOnScheduler)
                 .observeOn(observeOnScheduler)
+                .doFinally{stateLiveData.value = SplashScreenViewModelState.Loading(false)}
                 .subscribeWith(object : DisposableSingleObserver<List<FilmListItem>>() {
                     override fun onSuccess(items: List<FilmListItem>) {
                         stateLiveData.value = SplashScreenViewModelState.Success(items)
@@ -39,6 +41,7 @@ class SplashScreenViewModel(
 }
 
 sealed class SplashScreenViewModelState {
+    data class Loading(val isLoading: Boolean) : SplashScreenViewModelState()
     data class Success(val listItems: List<FilmListItem>) : SplashScreenViewModelState()
     data class Error(val throwable: Throwable?) : SplashScreenViewModelState()
 }

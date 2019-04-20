@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_detail_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.film.detail.FilmDetailFragment">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_small">
+
+            <TextView
+                android:id="@+id/text_detail_title"
+                style="@style/FilmTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxsmall"
+                tools:text="New Hope" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_detail_release_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="?android:textColorSecondary"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="1977-05-25" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    tools:ignore="ContentDescription">
+
+                    <ImageView
+                        android:id="@+id/image_detail_rating_1"
+                        android:layout_width="@dimen/icon_size_normal"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_black_24dp" />
+
+                    <ImageView
+                        android:id="@+id/image_detail_rating_2"
+                        android:layout_width="@dimen/icon_size_normal"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_black_24dp" />
+
+                    <ImageView
+                        android:id="@+id/image_detail_rating_3"
+                        android:layout_width="@dimen/icon_size_normal"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_black_24dp" />
+
+                    <ImageView
+                        android:id="@+id/image_detail_rating_4"
+                        android:layout_width="@dimen/icon_size_normal"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_black_24dp" />
+
+                    <ImageView
+                        android:id="@+id/image_detail_rating_5"
+                        android:layout_width="@dimen/icon_size_normal"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_black_24dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/divider_line_height"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:background="@color/divider_line" />
+
+            <TextView
+                style="@style/FilmTextContentHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxsmall"
+                android:text="@string/characters" />
+
+            <TextView
+                android:id="@+id/text_detail_characters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/text_size_small"
+                tools:text="Luke Skywalker, Gary Kurtz, Rick McCallum, Leonardo Davis" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/divider_line_height"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:background="@color/divider_line" />
+
+            <TextView
+                android:id="@+id/text_detail_opening_crawl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/spacing_xlarge"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                tools:text="It is a dark time for the\nRebellion. Although the Death\nStar has been destroyed,\nImperial troops have driven the\nRebel forces from their hidden\nbase and pursued them across\nthe galaxy.\n\nEvading the dreaded Imperial\nStarfleet, a group of freedom\nfighters led by Luke Skywalker\nhas established a new secret\nbase on the remote ice world\nof Hoth.\n\nThe evil lord Darth Vader,\nobsessed with finding young\nSkywalker, has dispatched\nthousands of remote probes into\nthe far reaches of space..." />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

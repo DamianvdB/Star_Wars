@@ -3,4 +3,8 @@
     <string name="films">Films</string>
     <string name="film_item_director">Director</string>
     <string name="film_item_producers">Producers</string>
+    <string name="characters">Characters</string>
+    <string name="generic_loading_data_error">Something went wrong…</string>
+    <string name="retry">Retry</string>
+
 </resources>

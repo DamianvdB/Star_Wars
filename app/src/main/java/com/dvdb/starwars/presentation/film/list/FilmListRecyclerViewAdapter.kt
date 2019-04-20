@@ -6,23 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.dvdb.starwars.R
 import com.dvdb.starwars.common.model.FilmListItem
+import com.dvdb.starwars.presentation.util.ListItemClickListener
 import kotlinx.android.synthetic.main.item_film.view.*
 
-class FilmListRecyclerViewAdapter(
+internal class FilmListRecyclerViewAdapter(
     private val context: Context,
     private val layoutInflater: LayoutInflater,
     private var filmItems: List<FilmListItem> = emptyList(),
-    private val onClickListener: View.OnClickListener
+    private val onClickListener: ListItemClickListener<FilmListItem>
 ) : RecyclerView.Adapter<FilmListRecyclerViewAdapter.FilmViewHolder>() {
-    private val glideRequestOptions = RequestOptions().placeholder(R.drawable.ic_darth_vader)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         return FilmViewHolder(
             layoutInflater.inflate(R.layout.item_film, parent, false),
-            onClickListener
+            this
         )
     }
 
@@ -38,7 +37,6 @@ class FilmListRecyclerViewAdapter(
     private fun setImageFromItem(holder: FilmViewHolder, item: FilmListItem) {
         Glide.with(context)
             .load(item.filmUrl)
-            .apply(glideRequestOptions)
             .into(holder.image)
     }
 
@@ -51,16 +49,20 @@ class FilmListRecyclerViewAdapter(
 
     class FilmViewHolder(
         itemView: View,
-        onClickListener: View.OnClickListener
-    ) : RecyclerView.ViewHolder(itemView) {
+        private val adapter: FilmListRecyclerViewAdapter
+    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val image = itemView.image_film!!
-        val textTitle = itemView.text_film_title!!
-        val textReleaseDate = itemView.text_release_date!!
+        val textTitle = itemView.text_detail_title!!
+        val textReleaseDate = itemView.text_detail_release_date!!
         val textDirector = itemView.text_director!!
         val textProducer = itemView.text_producer!!
 
         init {
-            itemView.setOnClickListener(onClickListener)
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            adapter.onClickListener.onItemClicked(v!!, adapter.filmItems[adapterPosition])
         }
     }
 }

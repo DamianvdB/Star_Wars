@@ -24,7 +24,7 @@ Displays a list of all the Star Wars films, with the following information:
 * Producers
 * Poster
 <br/><br/>
-<img src="https://raw.githubusercontent.com/DamianvdB/Star_Wars/master/art/film_list_view_1.jpg" width="300" height="600">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/DamianvdB/Star_Wars/master/art/film_list_view_2.jpg" width="300" height="600">
+<img src="https://raw.githubusercontent.com/DamianvdB/Star_Wars/master/art/film_list_view_2.jpg" width="300" height="600">
 <br/><br/><br/>
 
 ### 3. Film detail screen

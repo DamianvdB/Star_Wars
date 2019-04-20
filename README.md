@@ -2,6 +2,13 @@
 Android application written in Kotlin which displays information about all the released Star Wars films to date.
 <br/><br/>
 
+# Jetpack Components
+The following Android Jetpack Components were used:
+1. [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+2. [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+3. [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
+<br/><br/>
+
 # Application structure
 ### 1. Splash screen
 Loads (and caches) all the basic information about the Stars Wars films.
@@ -30,6 +37,6 @@ Displays the following additional information about a specific Star Wars film:
 <br/><br/><br/>
 
 # Resources
-All the information about the Star Wars films are from the following APIs:
+All information about the Star Wars films are from the following APIs:
 * www.swapi.co
 * www.themoviedb.org

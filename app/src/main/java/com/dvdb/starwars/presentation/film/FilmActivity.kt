@@ -59,16 +59,18 @@ class FilmActivity : AppCompatActivity(), KodeinAware {
         })
     }
 
+    override fun onBackPressed() {
+        if (!navigationManager.isFragmentWithTagPresent(FRAGMENT_LIST_TAG)) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            navigationManager.replaceFragment(frame_layout.id, navigationManager.getFilmListFragment(), FRAGMENT_LIST_TAG)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            android.R.id.home -> {
-                if (!navigationManager.isFragmentWithTagPresent(FRAGMENT_LIST_TAG)) {
-                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                    navigationManager.replaceFragment(frame_layout.id, navigationManager.getFilmListFragment(), FRAGMENT_LIST_TAG)
-                } else {
-                    super.onBackPressed()
-                }
-            }
+            android.R.id.home -> { onBackPressed() }
         }
         return super.onOptionsItemSelected(item)
     }
